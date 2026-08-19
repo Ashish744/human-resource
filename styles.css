@@ -1011,7 +1011,7 @@ nav{
     transition: opacity .7s ease, transform .7s ease;
   }
 
-.reveal.in{ opacity: 1; transform: translateY(0); position: sticky; top: 90px; }
+.reveal.in{ opacity: 1; transform: translateY(0);  }
 
 /* Text-specific reveal (headings, eyebrows, paragraphs) — slightly quicker, subtler rise */
   .reveal-text{
@@ -3698,6 +3698,9 @@ nav{
     display: flex;
     flex-direction: column;
     gap: 24px;
+  position: sticky;
+  top: 112px;
+  align-self: start;
   }
 
 .filter-label{
@@ -3839,6 +3842,7 @@ nav{
 @media (max-width: 900px){
     .blog-main-grid{ grid-template-columns: 1fr; }
     .posts-grid{ grid-template-columns: 1fr; }
+  .blog-sidebar{ position: static; }
   }
 
 /* ---------- Newsletter banner ---------- */
