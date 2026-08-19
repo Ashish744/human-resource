@@ -13,7 +13,7 @@ const roleContent = {
     submit: 'Create employer account'
   },
   candidate: {
-    image: 'images/blog5.webp',
+    image: 'images/blog1.webp',
     alt: 'Portrait of a smiling professional woman',
     quote: '&ldquo;One profile, considered roles, no scattergun applications.&rdquo;',
     cite: 'Stackly Candidate Care',
