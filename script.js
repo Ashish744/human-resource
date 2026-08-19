@@ -548,6 +548,6 @@
       if (!isValid) return;
 
       inquiryForm.reset();
-      showFormSuccess(inquiryForm, 'Your inquiry has been submitted successfully.');
+      window.location.href = '404.html';
     });
   }

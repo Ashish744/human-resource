@@ -195,6 +195,15 @@
     color: var(--gray-light);
     margin-top: 7px;
   }
+  .si-success{
+    margin-top: 16px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: #e7f5ed;
+    color: #245c42;
+    font-size: 13px;
+    line-height: 1.45;
+  }
   .si-password-wrapper{
     position: relative;
     display: flex;
