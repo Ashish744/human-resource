@@ -113,9 +113,14 @@
   pillGroups.forEach(group => {
     const options = group.querySelectorAll('.pill-option');
     options.forEach(option => {
+      option.setAttribute('aria-pressed', option.classList.contains('active') ? 'true' : 'false');
       option.addEventListener('click', () => {
-        options.forEach(item => item.classList.remove('active'));
+        options.forEach(item => {
+          item.classList.remove('active');
+          item.setAttribute('aria-pressed', 'false');
+        });
         option.classList.add('active');
+        option.setAttribute('aria-pressed', 'true');
       });
     });
   });
@@ -208,7 +213,7 @@
   revealEls.forEach(el => revealObserver.observe(el));
 
   // Highlight the current page in the nav bar
-  const navLinks = document.querySelectorAll('.nav-links a');
+  const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu > a');
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
   navLinks.forEach(link => {
     const linkPath = (link.getAttribute('href') || '').split('#')[0].split('/').pop();
@@ -326,20 +331,25 @@
   if (newsletterForm) {
     newsletterForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      
       const emailInput = newsletterForm.querySelector('input[type="email"]');
-      const email = emailInput.value.trim();
-      
-      // Basic email validation
+      const error = newsletterForm.querySelector('.nb-error');
       const emailRegex = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
-      
-      if (email && emailRegex.test(email)) {
-        // Valid email - redirect to 404 page
-        window.location.href = '404.html';
-      } else {
-        // Invalid email - show error
-        alert('Please enter a valid email address');
+      error.textContent = '';
+      emailInput.classList.remove('has-error');
+
+      if (!emailInput.value.trim()) {
+        error.textContent = 'Email is required.';
+        emailInput.classList.add('has-error');
+        return;
       }
+      if (!emailRegex.test(emailInput.value.trim())) {
+        error.textContent = 'Enter a valid email address.';
+        emailInput.classList.add('has-error');
+        return;
+      }
+
+      newsletterForm.reset();
+      window.location.href = '404.html';
     });
   }
 
@@ -347,64 +357,6 @@
   const sidebarSubscribeBtn = document.querySelector('.sidebar-subscribe button');
   if (sidebarSubscribeBtn) {
     sidebarSubscribeBtn.addEventListener('click', () => {
-      // Show a simple prompt for email
-      const email = prompt('Enter your work email:');
-      
-      // Basic email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
-      
-      if (email && emailRegex.test(email)) {
-        // Valid email - redirect to 404 page
-        window.location.href = '404.html';
-      } else if (email) {
-        // Invalid email - show error
-        alert('Please enter a valid email address');
-      }
-      // If user cancels (email is null), do nothing
-    });
-  }
-
-  // Job application form handler (Apply for a Position)
-  const jobApplicationForm = document.querySelector('#apply-for-a-job form');
-  if (jobApplicationForm) {
-    jobApplicationForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const nameInput = document.getElementById('af-name');
-      const emailInput = document.getElementById('af-email');
-      const phoneInput = document.getElementById('af-phone');
-      const coverLetterInput = document.getElementById('af-cover');
-      
-      const name = nameInput.value.trim();
-      const email = emailInput.value.trim();
-      const phone = phoneInput.value.trim();
-      const coverLetter = coverLetterInput.value.trim();
-      
-      // Email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
-      
-      // Check required fields
-      if (!name) {
-        alert('Please enter your full name');
-        return;
-      }
-      
-      if (!email || !emailRegex.test(email)) {
-        alert('Please enter a valid email address');
-        return;
-      }
-      
-      if (!phone) {
-        alert('Please enter your phone number');
-        return;
-      }
-      
-      if (!coverLetter) {
-        alert('Please write a cover letter');
-        return;
-      }
-      
-      // All validations passed - redirect to 404 page
       window.location.href = '404.html';
     });
   }
@@ -454,45 +406,116 @@
     });
   }
 
+  function clearFormErrors(form){
+    form.querySelectorAll('.field-error, .form-success').forEach(message => message.remove());
+    form.querySelectorAll('.has-error').forEach(field => field.classList.remove('has-error'));
+  }
+
+  function showFieldError(target, message){
+    const field = target.closest('.field') || target.closest('.pill-field') || target.parentElement;
+    if (!field) return;
+    field.classList.add('has-error');
+    const error = document.createElement('span');
+    error.className = 'field-error';
+    error.textContent = message;
+    field.appendChild(error);
+  }
+
+  function showFormSuccess(form, message, duration = 0){
+    const success = document.createElement('p');
+    success.className = 'form-success';
+    success.textContent = message;
+    form.appendChild(success);
+    if (duration > 0) {
+      window.setTimeout(() => success.remove(), duration);
+    }
+  }
+
+  function resetPillGroups(form){
+    form.querySelectorAll('.pill-group').forEach(group => {
+      const options = group.querySelectorAll('.pill-option');
+      options.forEach((option, index) => {
+        option.classList.toggle('active', index === 0);
+        option.setAttribute('aria-pressed', index === 0 ? 'true' : 'false');
+      });
+    });
+  }
+
   // Job posting form handler (Post a Job)
   const jobPostingForm = document.querySelector('#post-a-job form');
   if (jobPostingForm) {
     jobPostingForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      
-      const titleInput = document.getElementById('pj-title');
-      const companyInput = document.getElementById('pj-company');
-      const descriptionInput = document.getElementById('pj-desc');
-      const requirementsInput = document.getElementById('pj-req');
-      
-      const title = titleInput.value.trim();
-      const company = companyInput.value.trim();
-      const description = descriptionInput.value.trim();
-      const requirements = requirementsInput.value.trim();
-      
-      // Check required fields
-      if (!title) {
-        alert('Please enter a job title');
-        return;
-      }
-      
-      if (!company) {
-        alert('Please enter the company name');
-        return;
-      }
-      
-      if (!description) {
-        alert('Please enter a job description');
-        return;
-      }
-      
-      if (!requirements) {
-        alert('Please enter job requirements');
-        return;
-      }
-      
-      // All validations passed - redirect to 404 page
-      window.location.href = '404.html';
+      clearFormErrors(jobPostingForm);
+      const requiredFields = [
+        ['pj-title', 'Please enter a job title.'],
+        ['pj-company', 'Please enter the company name.'],
+        ['pj-min', 'Please enter the minimum salary.'],
+        ['pj-max', 'Please enter the maximum salary.'],
+        ['pj-desc', 'Please enter a job description.'],
+        ['pj-req', 'Please enter the job requirements.'],
+        ['pj-benefits', 'Please enter the benefits and perks.'],
+        ['pj-deadline', 'Please choose an application deadline.']
+      ];
+      let isValid = true;
+      requiredFields.forEach(([id, message]) => {
+        const input = document.getElementById(id);
+        if (!input.value.trim()) {
+          showFieldError(input, message);
+          isValid = false;
+        }
+      });
+      if (!isValid) return;
+
+      jobPostingForm.reset();
+      resetPillGroups(jobPostingForm);
+      showFormSuccess(jobPostingForm, 'Your job has been submitted successfully.', 2000);
+    });
+  }
+
+  document.querySelectorAll('.upload-zone .btn').forEach(button => {
+    button.addEventListener('click', () => { window.location.href = '404.html'; });
+  });
+
+  // Candidate application form handler
+  const jobApplicationForm = document.querySelector('#apply-for-a-job form');
+  if (jobApplicationForm) {
+    jobApplicationForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      clearFormErrors(jobApplicationForm);
+
+      const fields = {
+        name: document.getElementById('af-name'),
+        email: document.getElementById('af-email'),
+        phone: document.getElementById('af-phone'),
+        linkedin: document.getElementById('af-linkedin'),
+        cover: document.getElementById('af-cover'),
+        salary: document.getElementById('af-salary'),
+        start: document.getElementById('af-start')
+      };
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
+      const nameRegex = /^[A-Za-z][A-Za-z' -]*$/;
+      let isValid = true;
+      const validate = (input, condition, message) => {
+        if (!condition) {
+          showFieldError(input, message);
+          isValid = false;
+        }
+      };
+
+      validate(fields.name, nameRegex.test(fields.name.value.trim()), 'Enter a name using letters only.');
+      validate(fields.email, emailRegex.test(fields.email.value.trim()), 'Enter a valid email address.');
+      validate(fields.phone, fields.phone.value.trim(), 'Please enter your phone number.');
+      validate(fields.linkedin, fields.linkedin.value.trim(), 'Please enter your LinkedIn profile URL.');
+      validate(fields.cover, fields.cover.value.trim(), 'Please enter a cover letter.');
+      validate(fields.salary, fields.salary.value.trim(), 'Please enter your desired salary.');
+      validate(fields.start, fields.start.value.trim(), 'Please choose your availability date.');
+
+      if (!isValid) return;
+
+      jobApplicationForm.reset();
+      resetPillGroups(jobApplicationForm);
+      showFormSuccess(jobApplicationForm, 'Your application has been submitted successfully.', 2000);
     });
   }
 
@@ -501,27 +524,30 @@
   if (inquiryForm) {
     inquiryForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      clearFormErrors(inquiryForm);
 
       const nameInput = inquiryForm.querySelector('input[type="text"]');
       const emailInput = inquiryForm.querySelector('input[type="email"]');
       const messageInput = inquiryForm.querySelector('textarea');
       const emailRegex = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
+      const nameRegex = /^[A-Za-z][A-Za-z' -]*$/;
+      let isValid = true;
 
-      if (!nameInput.value.trim()) {
-        alert('Please enter your full name');
-        return;
+      if (!nameRegex.test(nameInput.value.trim())) {
+        showFieldError(nameInput, 'Enter a name using letters only.');
+        isValid = false;
       }
-
       if (!emailRegex.test(emailInput.value.trim())) {
-        alert('Please enter a valid email address');
-        return;
+        showFieldError(emailInput, 'Enter a valid email address.');
+        isValid = false;
       }
-
       if (!messageInput.value.trim()) {
-        alert('Please describe how we can help');
-        return;
+        showFieldError(messageInput, 'Please describe how we can help.');
+        isValid = false;
       }
+      if (!isValid) return;
 
-      window.location.href = '404.html';
+      inquiryForm.reset();
+      showFormSuccess(inquiryForm, 'Your inquiry has been submitted successfully.');
     });
   }
