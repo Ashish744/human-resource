@@ -1,6 +1,6 @@
 const roleContent = {
   employer: {
-    image: ' images/create.webp',
+    image: 'images/blog2.webp',
     alt: 'Colleagues celebrating in a bright office',
     quote: '&ldquo;The advisor in your first meeting is the advisor who runs the work.&rdquo;',
     cite: 'Stackly HR Partners',
@@ -13,7 +13,7 @@ const roleContent = {
     submit: 'Create employer account'
   },
   candidate: {
-    image: ' images/create1.webp',
+    image: 'images/blog5.webp',
     alt: 'Portrait of a smiling professional woman',
     quote: '&ldquo;One profile, considered roles, no scattergun applications.&rdquo;',
     cite: 'Stackly Candidate Care',
@@ -34,6 +34,7 @@ const lastNameInput = document.getElementById('si-last');
 const emailInput = document.getElementById('si-email');
 const passwordInput = document.getElementById('si-password');
 const passwordConfirmationInput = document.getElementById('si-password2');
+const termsInput = document.getElementById('si-terms');
 
 roleButtons.forEach(button => {
   button.addEventListener('click', () => {
@@ -68,25 +69,44 @@ function setupPasswordToggle(input, button) {
 setupPasswordToggle(passwordInput, document.getElementById('si-password-toggle'));
 setupPasswordToggle(passwordConfirmationInput, document.getElementById('si-password-toggle2'));
 
+function clearValidationErrors() {
+  form.querySelectorAll('.si-field-error').forEach(error => error.remove());
+  form.querySelectorAll('.has-error').forEach(field => field.classList.remove('has-error'));
+}
+
+function showValidationError(input, message) {
+  const field = input.closest('.si-field') || input.closest('.si-terms');
+  if (!field) return;
+  field.classList.add('has-error');
+  const error = document.createElement('span');
+  error.className = 'si-field-error';
+  error.textContent = message;
+  field.appendChild(error);
+}
+
 form.addEventListener('submit', event => {
   event.preventDefault();
-
-  firstNameInput.setCustomValidity('');
-  lastNameInput.setCustomValidity('');
-  passwordConfirmationInput.setCustomValidity('');
+  clearValidationErrors();
 
   const namePattern = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
-  if (!namePattern.test(firstNameInput.value.trim())) {
-    firstNameInput.setCustomValidity('Please enter a valid first name using letters only.');
-  }
-  if (!namePattern.test(lastNameInput.value.trim())) {
-    lastNameInput.setCustomValidity('Please enter a valid last name using letters only.');
-  }
-  if (passwordInput.value !== passwordConfirmationInput.value) {
-    passwordConfirmationInput.setCustomValidity('Passwords do not match.');
-  }
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
+  let isValid = true;
+  const validate = (input, condition, message) => {
+    if (condition) return;
+    showValidationError(input, message);
+    isValid = false;
+  };
 
-  if (!form.reportValidity()) return;
+  validate(firstNameInput, namePattern.test(firstNameInput.value.trim()), 'Enter a valid first name using letters only.');
+  validate(lastNameInput, namePattern.test(lastNameInput.value.trim()), 'Enter a valid last name using letters only.');
+  validate(document.getElementById('si-role'), document.getElementById('si-role').value.trim(), 'Enter your current or most recent role.');
+  validate(document.getElementById('si-location'), document.getElementById('si-location').value.trim(), 'Enter your location.');
+  validate(emailInput, emailPattern.test(emailInput.value.trim()), 'Enter a valid email address.');
+  validate(passwordInput, passwordInput.value.length >= 8, 'Password must be at least 8 characters.');
+  validate(passwordConfirmationInput, passwordConfirmationInput.value === passwordInput.value && passwordConfirmationInput.value.length >= 8, 'Passwords must match and be at least 8 characters.');
+  validate(termsInput, termsInput.checked, 'Accept the terms of engagement and privacy policy.');
+
+  if (!isValid) return;
 
   localStorage.setItem('stacklyUserEmail', emailInput.value.trim());
   form.reset();

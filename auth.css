@@ -195,6 +195,19 @@
     color: var(--gray-light);
     margin-top: 7px;
   }
+  .si-field.has-error input{
+    border-color: #c75c5c;
+  }
+  .si-field-error{
+    display: block;
+    margin-top: 6px;
+    color: #b23b3b;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .si-terms.has-error{
+    color: #b23b3b;
+  }
   .si-success{
     margin-top: 16px;
     padding: 12px 14px;

@@ -23,7 +23,7 @@
     <div class="si-panel">
 
       <div class="si-image">
-        <img id="si-image" src="images/create.webp" alt="Portrait of a smiling professional woman">
+        <img id="si-image" src="images/blog5.webp" alt="Portrait of a smiling professional woman">
         <div class="si-image-content">
           <div></div>
           <div class="si-quote">
@@ -50,7 +50,7 @@
           <button type="button" class="active" data-role="candidate">Candidate</button>
         </div>
 
-        <form>
+        <form novalidate>
           <div class="si-form-row">
             <div class="si-field">
               <label for="si-first">First name</label>
@@ -64,17 +64,17 @@
 
           <div class="si-field">
             <label for="si-role" id="si-role-label">Current or most recent role</label>
-            <input id="si-role" type="text" placeholder="Head of Finance">
+            <input id="si-role" type="text" placeholder="Head of Finance" required>
           </div>
 
           <div class="si-field">
             <label for="si-location">Location</label>
-            <input id="si-location" type="text" placeholder="London, UK">
+            <input id="si-location" type="text" placeholder="London, UK" required>
           </div>
 
           <div class="si-field">
             <label for="si-email" id="si-email-label">Email</label>
-            <input id="si-email" type="email" pattern="[^\s@]+@[^\s@]+\.[A-Za-z]{2,}" placeholder="you@email.com">
+            <input id="si-email" type="email" pattern="[^\s@]+@[^\s@]+\.[A-Za-z]{2,}" placeholder="you@email.com" required>
           </div>
 
           <div class="si-field">
@@ -99,7 +99,7 @@
           </div>
 
           <label class="si-terms">
-            <input type="checkbox">
+            <input id="si-terms" type="checkbox" required>
             I agree to the terms of engagement and privacy policy.
           </label>
 
