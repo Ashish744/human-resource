@@ -469,7 +469,7 @@
 
       jobPostingForm.reset();
       resetPillGroups(jobPostingForm);
-      showFormSuccess(jobPostingForm, 'Your job has been submitted successfully.', 2000);
+      window.location.href = '404.html';
     });
   }
 
@@ -515,7 +515,7 @@
 
       jobApplicationForm.reset();
       resetPillGroups(jobApplicationForm);
-      showFormSuccess(jobApplicationForm, 'Your application has been submitted successfully.', 2000);
+      window.location.href = '404.html';
     });
   }
 
