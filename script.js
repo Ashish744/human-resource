@@ -63,10 +63,26 @@
 
   // Blog category tabs
   const blogTabs = document.querySelectorAll('.blog-tabs button');
+  const blogArticles = document.querySelectorAll('.post-card[data-category]');
+  const featuredArticle = document.querySelector('.featured-article[data-category]');
   blogTabs.forEach(btn => {
     btn.addEventListener('click', () => {
       blogTabs.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+      const showAll = filter === 'all';
+      blogArticles.forEach(article => {
+        const isVisible = showAll || article.dataset.category === filter;
+        article.hidden = !isVisible;
+        article.classList.toggle('category-hidden', !isVisible);
+      });
+
+      if (featuredArticle) {
+        const isVisible = showAll || featuredArticle.dataset.category === filter;
+        featuredArticle.hidden = !isVisible;
+        featuredArticle.classList.toggle('category-hidden', !isVisible);
+      }
     });
   });
 
@@ -302,7 +318,7 @@
       const email = emailInput.value.trim();
       
       // Basic email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
       
       if (email && emailRegex.test(email)) {
         // Valid email - redirect to 404 page
@@ -322,7 +338,7 @@
       const email = prompt('Enter your work email:');
       
       // Basic email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
       
       if (email && emailRegex.test(email)) {
         // Valid email - redirect to 404 page
@@ -352,7 +368,7 @@
       const coverLetter = coverLetterInput.value.trim();
       
       // Email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
       
       // Check required fields
       if (!name) {
@@ -476,7 +492,7 @@
       const nameInput = inquiryForm.querySelector('input[type="text"]');
       const emailInput = inquiryForm.querySelector('input[type="email"]');
       const messageInput = inquiryForm.querySelector('textarea');
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
 
       if (!nameInput.value.trim()) {
         alert('Please enter your full name');

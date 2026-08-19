@@ -50,6 +50,13 @@
 
     if (!signInForm.reportValidity()) return;
 
+    if (!/^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(emailInput.value.trim())) {
+      emailInput.setCustomValidity('Please enter a valid email address.');
+      emailInput.reportValidity();
+      emailInput.setCustomValidity('');
+      return;
+    }
+
     const selectedRole = document.querySelector('.si-toggle button.active')?.dataset.role;
     const dashboard = selectedRole === 'candidate'
       ? 'candidate-dashboard (2).html'
