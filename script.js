@@ -92,6 +92,19 @@
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+      const showAll = filter === 'all';
+      blogArticles.forEach(article => {
+        const isVisible = showAll || article.dataset.sidebarCategory === filter;
+        article.hidden = !isVisible;
+        article.classList.toggle('category-hidden', !isVisible);
+      });
+      if (featuredArticle) {
+        const isVisible = showAll || featuredArticle.dataset.category === filter;
+        featuredArticle.hidden = !isVisible;
+        featuredArticle.classList.toggle('category-hidden', !isVisible);
+      }
     });
   });
 
