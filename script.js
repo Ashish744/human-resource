@@ -79,6 +79,18 @@
     });
   });
 
+  // Single-choice button groups in the hiring form
+  const pillGroups = document.querySelectorAll('.pill-group');
+  pillGroups.forEach(group => {
+    const options = group.querySelectorAll('.pill-option');
+    options.forEach(option => {
+      option.addEventListener('click', () => {
+        options.forEach(item => item.classList.remove('active'));
+        option.classList.add('active');
+      });
+    });
+  });
+
   // Auto-tag headings & eyebrows for a subtle fade/rise entrance (skips ones already inside a .reveal block)
   const textTargets = document.querySelectorAll('main h1, main h2, main h3, .eyebrow, .fa-content h2, .cta-banner h2');
   textTargets.forEach(el => {
@@ -222,12 +234,13 @@
 
     function buildDots(){
       dotsWrap.innerHTML = '';
-      cards.forEach((_, i) => {
+      const dotCount = maxIndex() + 1;
+      for (let i = 0; i < dotCount; i += 1){
         const b = document.createElement('button');
         b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
         b.addEventListener('click', () => { index = i; update(); });
         dotsWrap.appendChild(b);
-      });
+      }
     }
 
     function update(){
@@ -249,7 +262,15 @@
 
     prevBtn.addEventListener('click', () => { index -= 1; update(); });
     nextBtn.addEventListener('click', () => { index += 1; update(); });
-    window.addEventListener('resize', update);
+    let lastDotCount = maxIndex() + 1;
+    window.addEventListener('resize', () => {
+      const dotCount = maxIndex() + 1;
+      if (dotCount !== lastDotCount){
+        lastDotCount = dotCount;
+        buildDots();
+      }
+      update();
+    });
 
     buildDots();
     update();
