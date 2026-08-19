@@ -6,6 +6,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const profileName = document.querySelector('.dash-name');
   if (storedEmail && profileName) profileName.textContent = storedEmail;
 
+  const revealTargets = document.querySelectorAll('.dash-view > .dash-topline, .dash-view > .dash-stats, .dash-view > .dash-grid, .dash-view > .dash-section');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealTargets.forEach(target => {
+    target.classList.add('dash-reveal');
+    revealObserver.observe(target);
+  });
+
   // Profile dropdown
   const profile = document.querySelector('.dash-profile');
   const profileBtn = document.querySelector('.dash-profile-btn');
@@ -30,11 +44,15 @@ document.addEventListener('DOMContentLoaded', () => {
   function openSidebar(){
     sidebar.classList.add('open');
     overlay.classList.add('show');
+    document.documentElement.classList.add('dash-menu-open');
+    document.body.classList.add('dash-menu-open');
     document.body.style.overflow = 'hidden';
   }
   function closeSidebar(){
     sidebar.classList.remove('open');
     overlay.classList.remove('show');
+    document.documentElement.classList.remove('dash-menu-open');
+    document.body.classList.remove('dash-menu-open');
     document.body.style.overflow = '';
   }
 

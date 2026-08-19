@@ -87,8 +87,75 @@
     }
   });
 
+  const effectTargets = document.querySelectorAll('main h1, main h2, main h3, main .eyebrow, main .quote, main .quote-text, main .cta-banner p');
+  let headingIndex = 0;
+  let subheadingIndex = 0;
+  effectTargets.forEach(el => {
+    let effect = 'fade';
+    if (el.matches('h1')) effect = 'zoom';
+    else if (el.matches('h2')) effect = ['slide-left', 'gradient', 'slide-right'][headingIndex++ % 3];
+    else if (el.matches('h3')) effect = ['word', 'letter', 'slide-up'][subheadingIndex++ % 3];
+    else if (el.classList.contains('eyebrow')) effect = 'typewriter';
+    else effect = ['glow', 'blur', 'float'][subheadingIndex++ % 3];
+
+    el.classList.add('text-effect', 'text-effect-' + effect);
+
+    if ((effect === 'letter' || effect === 'word') && !el.children.length && !el.querySelector('br')) {
+      const text = el.textContent.trim();
+      el.textContent = '';
+      el.setAttribute('aria-label', text);
+      const parts = effect === 'letter' ? Array.from(text) : text.split(/(\s+)/);
+      parts.forEach(part => {
+        if (/^\s+$/.test(part)) el.appendChild(document.createTextNode(part));
+        else {
+          const span = document.createElement('span');
+          span.textContent = part;
+          span.setAttribute('aria-hidden', 'true');
+          el.appendChild(span);
+        }
+      });
+    }
+  });
+
+  const heroSections = document.querySelectorAll('main > section.hero, main > section.about-hero, main > section.contact-hero, main > section.pricing-hero');
+  heroSections.forEach(hero => {
+    const content = hero.querySelector('.hero-grid > div:first-child, .ah-inner, .ch-inner, .pricing-hero .wrap');
+    const heading = content?.querySelector('h1');
+    const highlight = content?.querySelector('.eyebrow, .badge-pill');
+    const description = content?.querySelector('h1 ~ p');
+    const actions = content?.querySelector('.hero-ctas, .ah-cta, .billing-toggle');
+    if (!content || !heading) return;
+
+    const effectClasses = ['text-effect', 'text-effect-fade', 'text-effect-slide-left', 'text-effect-slide-right', 'text-effect-slide-up', 'text-effect-zoom', 'text-effect-blur', 'text-effect-typewriter', 'text-effect-gradient', 'text-effect-glow', 'text-effect-float', 'text-effect-letter', 'text-effect-word', 'reveal-text'];
+    [heading, highlight, description, actions].forEach(target => {
+      if (target) target.classList.remove(...effectClasses);
+    });
+
+    heading.classList.add('hero-sequence-heading');
+    if (highlight) {
+      highlight.classList.add('hero-sequence-highlight');
+      if (!highlight.children.length) {
+        const text = highlight.textContent.trim();
+        highlight.textContent = '';
+        const parts = text.split(/(\s+)/);
+        parts.forEach(part => {
+          if (/^\s+$/.test(part)) highlight.appendChild(document.createTextNode(part));
+          else {
+            const span = document.createElement('span');
+            span.textContent = part;
+            span.setAttribute('aria-hidden', 'true');
+            highlight.appendChild(span);
+          }
+        });
+        highlight.setAttribute('aria-label', text);
+      }
+    }
+    if (description) description.classList.add('hero-sequence-description');
+    if (actions) actions.classList.add('hero-sequence-actions');
+  });
+
   // Reveal on scroll (fade/slide-up for sections, text, and staggered card groups)
-  const revealEls = document.querySelectorAll('.reveal, .reveal-text, .reveal-stagger');
+  const revealEls = document.querySelectorAll('.reveal, .reveal-text, .reveal-stagger, .text-effect, .hero-sequence-heading, .hero-sequence-highlight, .hero-sequence-description, .hero-sequence-actions');
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting){
@@ -303,6 +370,8 @@
       navToggle.setAttribute('aria-label', 'Open navigation menu');
       mobileMenu.classList.remove('is-open');
       mobileMenu.setAttribute('aria-hidden', 'true');
+      document.documentElement.classList.remove('mobile-menu-open');
+      document.body.classList.remove('mobile-menu-open');
     };
 
     navToggle.addEventListener('click', (event) => {
@@ -312,6 +381,8 @@
       navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
       mobileMenu.classList.toggle('is-open', isOpen);
       mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+      document.documentElement.classList.toggle('mobile-menu-open', isOpen);
+      document.body.classList.toggle('mobile-menu-open', isOpen);
     });
 
     mobileMenu.addEventListener('click', (event) => {

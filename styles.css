@@ -21,6 +21,8 @@
 *{ box-sizing: border-box; margin:0; padding:0; }
 
 html{ scroll-behavior: smooth; }
+html.mobile-menu-open,
+body.mobile-menu-open{ overflow: hidden; }
 
 body{
     font-family: 'Inter', sans-serif;
@@ -1034,8 +1036,139 @@ nav{
   .reveal-stagger.in > *:nth-child(6){ transition-delay: .33s; }
   .reveal-stagger.in > *:nth-child(n+7){ transition-delay: .38s; }
 
+  .text-effect{
+    opacity: 0;
+    transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1), filter .7s cubic-bezier(.22,.61,.36,1);
+  }
+  .text-effect.in{ opacity: 1; transform: translate3d(0,0,0); filter: none; }
+  .text-effect-fade.in{ animation: textFadeInOut 1.2s ease both; }
+  .text-effect-slide-left{ transform: translate3d(-28px,0,0); }
+  .text-effect-slide-right{ transform: translate3d(28px,0,0); }
+  .text-effect-slide-up{ transform: translate3d(0,22px,0); }
+  .text-effect-zoom{ transform: scale(.94); }
+  .text-effect-blur{ transform: translate3d(0,12px,0); filter: blur(7px); }
+  .text-effect-typewriter{ clip-path: inset(0 100% 0 0); white-space: nowrap; }
+  .text-effect-typewriter.in{ clip-path: inset(0 0 0 0); transition: clip-path 1s cubic-bezier(.77,0,.18,1), opacity .3s ease; }
+  .text-effect-gradient.in{
+    background: linear-gradient(110deg, var(--navy-deep) 20%, #4fbba0 45%, var(--navy-deep) 70%);
+    background-size: 220% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textGradient 2.2s ease both;
+  }
+  .text-effect-glow.in{ animation: textGlow 2.2s ease both; }
+  .text-effect-float.in{ animation: textFloat 2.8s ease-in-out 2 both; }
+  .text-effect-letter > span,
+  .text-effect-word > span{
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .5s ease, transform .5s cubic-bezier(.22,.61,.36,1);
+  }
+  .text-effect-letter.in > span,
+  .text-effect-word.in > span{ opacity: 1; transform: translateY(0); }
+  .text-effect-letter.in > span:nth-child(1), .text-effect-word.in > span:nth-child(1){ transition-delay: .02s; }
+  .text-effect-letter.in > span:nth-child(2), .text-effect-word.in > span:nth-child(2){ transition-delay: .05s; }
+  .text-effect-letter.in > span:nth-child(3), .text-effect-word.in > span:nth-child(3){ transition-delay: .08s; }
+  .text-effect-letter.in > span:nth-child(4), .text-effect-word.in > span:nth-child(4){ transition-delay: .11s; }
+  .text-effect-letter.in > span:nth-child(5), .text-effect-word.in > span:nth-child(5){ transition-delay: .14s; }
+  .text-effect-letter.in > span:nth-child(n+6), .text-effect-word.in > span:nth-child(n+6){ transition-delay: .17s; }
+
+  @keyframes textFadeInOut{
+    0%, 100%{ opacity: .35; }
+    45%, 70%{ opacity: 1; }
+  }
+  @keyframes textGradient{ from{ background-position: 100% center; } to{ background-position: 0 center; } }
+  @keyframes textGlow{
+    0%, 100%{ text-shadow: 0 0 0 rgba(79,187,160,0); }
+    50%{ text-shadow: 0 0 16px rgba(79,187,160,.24); }
+  }
+  @keyframes textFloat{
+    0%, 100%{ transform: translateY(0); }
+    50%{ transform: translateY(-5px); }
+  }
+
+  .hero-sequence-heading,
+  .hero-sequence-highlight,
+  .hero-sequence-description,
+  .hero-sequence-actions{
+    opacity: 0;
+    will-change: opacity, transform;
+  }
+  .hero-sequence-heading{
+    transform: translate3d(0, 22px, 0);
+    transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1);
+  }
+  .hero-sequence-highlight{
+    transform: translate3d(0, 10px, 0);
+    transition: opacity .5s cubic-bezier(.22,.61,.36,1), transform .5s cubic-bezier(.22,.61,.36,1);
+    transition-delay: .72s;
+  }
+  .hero-sequence-highlight > span{
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .42s ease, transform .42s cubic-bezier(.22,.61,.36,1);
+  }
+  .hero-sequence-highlight.in > span{ opacity: 1; transform: translateY(0); }
+  .hero-sequence-highlight.in > span:nth-child(1){ transition-delay: .74s; }
+  .hero-sequence-highlight.in > span:nth-child(2){ transition-delay: .79s; }
+  .hero-sequence-highlight.in > span:nth-child(3){ transition-delay: .84s; }
+  .hero-sequence-highlight.in > span:nth-child(4){ transition-delay: .89s; }
+  .hero-sequence-highlight.in > span:nth-child(5){ transition-delay: .94s; }
+  .hero-sequence-highlight.in > span:nth-child(n+6){ transition-delay: .98s; }
+  .hero-sequence-description{
+    transform: translate3d(0, 14px, 0);
+    transition: opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1);
+    transition-delay: 1s;
+  }
+  .hero-sequence-actions{
+    transform: translate3d(0, 14px, 0);
+    transition: opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1);
+    transition-delay: 1.22s;
+  }
+  .hero-sequence-actions > *{
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+    transition: opacity .5s ease, transform .5s cubic-bezier(.22,.61,.36,1);
+    transition-delay: 1.22s;
+  }
+  .hero-sequence-actions.in > *{ opacity: 1; transform: translate3d(0,0,0); }
+  .hero-sequence-actions.in > *:nth-child(2){ transition-delay: 1.32s; }
+  .hero-sequence-heading.in,
+  .hero-sequence-highlight.in,
+  .hero-sequence-description.in,
+  .hero-sequence-actions.in{ opacity: 1; transform: translate3d(0,0,0); }
+  .hero-sequence-highlight.in{ animation: heroHighlightFloat 4s ease-in-out 1.8s 2; }
+
+  @keyframes heroHighlightFloat{
+    0%, 100%{ transform: translate3d(0,0,0); }
+    50%{ transform: translate3d(0,-3px,0); }
+  }
+
 @media (prefers-reduced-motion: reduce){
     *{ animation: none !important; transition: none !important; }
+    .text-effect, .text-effect.in,
+    .text-effect-letter > span, .text-effect-word > span{
+      opacity: 1;
+      transform: none;
+      filter: none;
+      clip-path: none;
+      background: none;
+      -webkit-text-fill-color: currentColor;
+    }
+    .hero-sequence-heading,
+    .hero-sequence-highlight,
+    .hero-sequence-description,
+    .hero-sequence-actions,
+    .hero-sequence-actions > *,
+    .hero-sequence-highlight > span{
+      opacity: 1;
+      transform: none;
+      transition: none;
+      animation: none;
+    }
   }
 
 /* ---------- Card hover effects ---------- */
