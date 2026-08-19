@@ -1,6 +1,6 @@
   const roleContent = {
     employer: {
-      image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop',
+      image: 'images/blog2.webp',
       alt: 'Colleagues celebrating in a bright office',
       quote: '&ldquo;The advisor in your first meeting is the advisor who runs the work.&rdquo;',
       cite: 'Stackly HR Partners',
@@ -9,7 +9,7 @@
       submit: 'Sign in'
     },
     candidate: {
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop',
+      image: 'images/blog1.webp',
       alt: 'Candidates working together on laptops',
       quote: '&ldquo;Represented properly, briefed honestly, never sent blind.&rdquo;',
       cite: 'Stackly Candidate Care',
