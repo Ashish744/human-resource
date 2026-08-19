@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stackly — Hire the people your strategy actually needs</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="index.html" class="logo" aria-label="Stackly home">
+        <img src="images/logo.webp" alt="Stackly" class="logo-img">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="hiring.html">Hiring</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <a href="signin.html" class="nav-signin">Sign in</a>
+        <a href="404.html" class="btn-pill-dark">Get started</a>
+      </div>
+
+      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </div>
+  <div class="seam"></div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <a href="index.html">Home</a>
+  <a href="solutions.html">Solutions</a>
+  <a href="hiring.html">Hiring</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="blogs.html">Blogs</a>
+  <div class="mobile-menu-actions">
+    <a href="signin.html" class="nav-signin">Sign in</a>
+    <a href="404.html" class="btn-pill-dark">Get started</a>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- HIRING HERO -->
+  <section class="hero hire-hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="badge-pill">Introducing Stackly 2.0</span>
+        <h1 class="serif">Find the Right Talent.<br>Land the Right Job.</h1>
+        <p>Stackly operates a dual-purpose matching ecosystem. We empower elite corporate recruiting teams with vetted pipeline health, while guiding top-tier design, tech, and operations professionals into meaningful career steps.</p>
+        <div class="hero-ctas">
+          <a href="404.html" class="btn btn-dark">Post a Job</a>
+          <a href="404.html" class="btn btn-outline">Browse Jobs</a>
+        </div>
+      </div>
+
+      <div class="hero-media">
+        <div class="frame">
+          <img src="images/Hero_Image-1.webp" alt="Recruiting team in a conference room">
+        </div>
+        <div class="float-card">
+          <div class="fc-label">Avg. Time to Hire</div>
+          <div class="fc-number">23 Days</div>
+          <div class="fc-sub">compared to 68-day industry benchmark</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIRING MADE SIMPLE -->
+  <section class="hire-steps">
+    <div class="wrap">
+      <div class="hs-head reveal">
+        <div class="eyebrow hs-eyebrow">For employers</div>
+        <h2 class="serif">Hiring Made Simple</h2>
+      </div>
+
+      <div class="hs-carousel reveal">
+        <button class="test-arrow hs-prev" aria-label="Previous steps">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 3.5L5.5 9l5.5 5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="hs-track-wrap">
+          <ul class="hs-track">
+            <li class="hs-card">
+              <div class="hs-top">
+                <span class="hs-num">01</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 3h7l4 4v14H7V3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 3v4h4" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9.5 12h5M9.5 15h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </div>
+              <h3>Post Your Position</h3>
+              <p>Create rich, comprehensive listings detailing specific skills, realistic salary transparency, and concrete cultural benefits to attract aligned applicants.</p>
+            </li>
+            <li class="hs-card">
+              <div class="hs-top">
+                <span class="hs-num">02</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.6"/><path d="M3 19c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M15.5 4.7A3.2 3.2 0 0 1 15 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M17 13.3c2.3.6 4 2.8 4 5.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </div>
+              <h3>Review Candidates</h3>
+              <p>Experience frictionless pipeline review. Filter applications by specific expertise, practical experience levels, or localized work preferences instantly.</p>
+            </li>
+            <li class="hs-card">
+              <div class="hs-top">
+                <span class="hs-num">03</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18" stroke="currentColor" stroke-width="1.6"/></svg>
+              </div>
+              <h3>Hire &amp; Onboard</h3>
+              <p>Extend firm offers directly through the portal and digitalize initial onboarding documentation to save administrative hours for both teams.</p>
+            </li>
+            <li class="hs-card">
+              <div class="hs-top">
+                <span class="hs-num">04</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v4M12 17v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M3 12h4M17 12h4M4.2 19.8L7 17M17 7l2.8-2.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.6"/></svg>
+              </div>
+              <h3>Automate Screening</h3>
+              <p>Apply configurable filters and scoring criteria to surface the strongest applicants without manually reviewing every submission.</p>
+            </li>
+            <li class="hs-card">
+              <div class="hs-top">
+                <span class="hs-num">05</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.6"/><path d="M8 2v4M16 2v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </div>
+              <h3>Schedule Interviews</h3>
+              <p>Sync availability across hiring teams and candidates, so interviews get booked without the usual back-and-forth emails.</p>
+            </li>
+            <li class="hs-card">
+              <div class="hs-top">
+                <span class="hs-num">06</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.6 5.9L21 9l-4.7 4.1L17.6 20 12 16.6 6.4 20l1.3-6.9L3 9l6.4-1.1L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              </div>
+              <h3>Track Performance</h3>
+              <p>Measure time-to-hire, source quality, and offer acceptance rates so every hiring cycle improves on the last.</p>
+            </li>
+          </ul>
+        </div>
+        <button class="test-arrow hs-next" aria-label="Next steps">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 3.5L12.5 9 7 14.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <div class="hs-dots"></div>
+    </div>
+  </section>
+
+  <!-- OPEN POSITIONS -->
+  <section class="open-positions" id="open-positions">
+    <div class="wrap">
+      <div class="op-head reveal">
+        <div>
+          <div class="eyebrow">Explore opportunities</div>
+          <h2 class="serif">Open Positions</h2>
+        </div>
+        <a href="404.html" class="all-link">
+          View All Jobs
+          <svg width="12" height="12" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12L12 3M12 3H5M12 3V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <div class="op-grid reveal">
+        <div class="job-card">
+          <h3 class="serif">Senior Product Designer</h3>
+          <div class="job-meta">Ardent Corp &middot; Remote / New York</div>
+          <div class="job-tags"><span>Full-time</span><span>Design</span><span>Remote Friendly</span></div>
+          <div class="job-bottom">
+            <span class="job-salary">$140k &ndash; $175k</span>
+            <a href="404.html" class="btn-pill-dark">Apply Now</a>
+          </div>
+        </div>
+        <div class="job-card">
+          <h3 class="serif">Full-Stack Developer</h3>
+          <div class="job-meta">Volt Bank &middot; San Francisco, CA</div>
+          <div class="job-tags"><span>Full-time</span><span>Engineering</span><span>On-site</span></div>
+          <div class="job-bottom">
+            <span class="job-salary">$150k &ndash; $190k</span>
+            <a href="404.html" class="btn-pill-dark">Apply Now</a>
+          </div>
+        </div>
+        <div class="job-card">
+          <h3 class="serif">Marketing Manager</h3>
+          <div class="job-meta">Marrow Media &middot; Remote / Austin</div>
+          <div class="job-tags"><span>Full-time</span><span>Marketing</span><span>Remote</span></div>
+          <div class="job-bottom">
+            <span class="job-salary">$95k &ndash; $120k</span>
+            <a href="404.html" class="btn-pill-dark">Apply Now</a>
+          </div>
+        </div>
+        <div class="job-card">
+          <h3 class="serif">Data Analyst</h3>
+          <div class="job-meta">Kessler Group &middot; Chicago, IL</div>
+          <div class="job-tags"><span>Contract</span><span>Analytics</span><span>Hybrid</span></div>
+          <div class="job-bottom">
+            <span class="job-salary">$110k &ndash; $135k</span>
+            <a href="404.html" class="btn-pill-dark">Apply Now</a>
+          </div>
+        </div>
+        <div class="job-card">
+          <h3 class="serif">UX Researcher</h3>
+          <div class="job-meta">Ferrous Design &middot; London, UK</div>
+          <div class="job-tags"><span>Full-time</span><span>Research</span><span>Hybrid</span></div>
+          <div class="job-bottom">
+            <span class="job-salary">&pound;80k &ndash; &pound;100k</span>
+            <a href="404.html" class="btn-pill-dark">Apply Now</a>
+          </div>
+        </div>
+        <div class="job-card">
+          <h3 class="serif">DevOps Engineer</h3>
+          <div class="job-meta">Northline Cloud &middot; Remote / Toronto</div>
+          <div class="job-tags"><span>Full-time</span><span>Infrastructure</span><span>Remote</span></div>
+          <div class="job-bottom">
+            <span class="job-salary">$130k &ndash; $165k</span>
+            <a href="404.html" class="btn-pill-dark">Apply Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECRUITER DASHBOARD -->
+  <section class="recruiter-tools">
+    <div class="wrap rt-grid">
+      <div class="rt-mock reveal">
+        <div class="rt-mock-head">
+          <span>Recruiter Dashboard</span>
+          <span class="rt-session">Active Session</span>
+        </div>
+        <div class="rt-metrics">
+          <div class="rt-metric">
+            <div class="rt-metric-label">Active Listings</div>
+            <div class="rt-metric-num">24</div>
+          </div>
+          <div class="rt-metric">
+            <div class="rt-metric-label">Total Applicants</div>
+            <div class="rt-metric-num">1,847</div>
+          </div>
+          <div class="rt-metric">
+            <div class="rt-metric-label">Interviews Scheduled</div>
+            <div class="rt-metric-num">38</div>
+          </div>
+          <div class="rt-metric">
+            <div class="rt-metric-label">Positions Filled</div>
+            <div class="rt-metric-num">12</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rt-content reveal">
+        <div class="eyebrow">Employer workspace</div>
+        <h2 class="serif">Powerful Recruiter Tools</h2>
+        <p>Ditch disorganized internal lists. Our complete employer management suite delivers institutional transparency over your active recruitment pipelines from discovery to contracting.</p>
+
+        <ul class="rt-list">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="8" stroke="#4fbba0" stroke-width="1.6"/><path d="M5.5 9.2l2.3 2.3L12.5 6.8" stroke="#4fbba0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Applicant Tracking System</h4>
+              <p>Monitor application flow, scorecard metrics, and assessment history in one workspace.</p>
+            </div>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="8" stroke="#4fbba0" stroke-width="1.6"/><path d="M5.5 9.2l2.3 2.3L12.5 6.8" stroke="#4fbba0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Team Collaboration</h4>
+              <p>Synchronize review pipelines across talent acquisition partners and engineering leads.</p>
+            </div>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="8" stroke="#4fbba0" stroke-width="1.6"/><path d="M5.5 9.2l2.3 2.3L12.5 6.8" stroke="#4fbba0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Analytics &amp; Reporting</h4>
+              <p>Trace operational metrics including median-time-to-hire and multi-source retention.</p>
+            </div>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="8" stroke="#4fbba0" stroke-width="1.6"/><path d="M5.5 9.2l2.3 2.3L12.5 6.8" stroke="#4fbba0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Automated Screening</h4>
+              <p>Establish screening guidelines to prioritize matching professional credentials cleanly.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CANDIDATE PORTAL -->
+  <section class="candidate-portal">
+    <div class="wrap cp-grid">
+      <div class="cp-content reveal">
+        <div class="eyebrow">Candidate experience</div>
+        <h2 class="serif">Seamless Application Experience</h2>
+        <p>We put candidates in control. Build an institutional-grade profile once, and use it to discover matching workspaces, apply with transparency, and track responses.</p>
+
+        <ul class="cp-list">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 1.6l2.1 4.5 4.9.6-3.6 3.4.9 4.9L9 12.6 4.7 15l.9-4.9L2 6.7l4.9-.6L9 1.6z" stroke="#4fbba0" stroke-width="1.4" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Smart Profile Builder</h4>
+              <p>Input background parameters and organize design or engineering credentials effortlessly.</p>
+            </div>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 1.6l2.1 4.5 4.9.6-3.6 3.4.9 4.9L9 12.6 4.7 15l.9-4.9L2 6.7l4.9-.6L9 1.6z" stroke="#4fbba0" stroke-width="1.4" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Job Match Score</h4>
+              <p>Review transparent matches based on actual operational needs and salary structures.</p>
+            </div>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 1.6l2.1 4.5 4.9.6-3.6 3.4.9 4.9L9 12.6 4.7 15l.9-4.9L2 6.7l4.9-.6L9 1.6z" stroke="#4fbba0" stroke-width="1.4" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Application Tracker</h4>
+              <p>Never wonder where you stand. Real-time updates as your profile moves through review stages.</p>
+            </div>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 1.6l2.1 4.5 4.9.6-3.6 3.4.9 4.9L9 12.6 4.7 15l.9-4.9L2 6.7l4.9-.6L9 1.6z" stroke="#4fbba0" stroke-width="1.4" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Interview Calendar</h4>
+              <p>Coordinate direct interview availability with synchronized calendar modules.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="cp-preview-wrap reveal">
+        <div class="cp-preview">
+          <blockquote>&ldquo;Stackly rebuilt my job hunting experience. I went from waiting for responses to direct interview schedules within 10 days, without sacrificing my salary expectations once.&rdquo;</blockquote>
+          <div>
+            <div class="cp-author-name">Elena Marsh</div>
+            <div class="cp-author-role">Senior UX Designer, Volt Bank</div>
+          </div>
+        </div>
+        <div class="cp-caption">Over 50k+ professionals matched in 40+ countries.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUSTED BY -->
+  <section class="trusted-by">
+    <div class="wrap">
+      <div class="trusted-by-label">Trusted by leading companies</div>
+      <div class="trusted-by-logos">
+        <span>MEROVINGIAN PLC</span>
+        <span>VALO HOLDINGS</span>
+        <span>KRONOS GLOBAL</span>
+        <span>AETHER INTL</span>
+        <span>NORDIC TRUST</span>
+        <span>ARDENT CORP</span>
+        <span>KESSLER</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATISTICS BANNER -->
+  <section class="statistics-banner">
+    <div class="wrap">
+      <div class="stats-row">
+        <div class="stat-column">
+          <div class="stat-num">50,000+</div>
+          <div class="stat-label">Jobs Posted</div>
+        </div>
+        <div class="stat-column">
+          <div class="stat-num">2M+</div>
+          <div class="stat-label">Candidates</div>
+        </div>
+        <div class="stat-column">
+          <div class="stat-num">98%</div>
+          <div class="stat-label">Satisfaction Rate</div>
+        </div>
+        <div class="stat-column">
+          <div class="stat-num">15,000+</div>
+          <div class="stat-label">Companies</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS / SUCCESS STORIES -->
+  <section class="testimonials-section">
+    <div class="wrap">
+      <div class="ts-head reveal">
+        <div class="eyebrow">Success stories</div>
+        <h2 class="serif">Proven Performance Across Industries</h2>
+      </div>
+
+      <div class="ts-grid">
+        <div class="testimonial-card reveal">
+          <blockquote>&ldquo;We rebuilt our engineering hiring bar in a quarter. We went from ninety days per senior hire to twenty-three, without lowering standards once.&rdquo;</blockquote>
+          <div>
+            <div class="ta-name">David Thompson</div>
+            <div class="ta-role">VP of Engineering, Swift Inc</div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <blockquote>&ldquo;The unvarnished compensation transparency and strict role requirements matching saved me weeks of interviewing for mismatched positions.&rdquo;</blockquote>
+          <div>
+            <div class="ta-name">Elena Vasquez</div>
+            <div class="ta-role">Lead Frontend Developer, Pixel Co</div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <blockquote>&ldquo;Connecting directly with verified candidates allowed our small HR team to audit applicant credentials and execute contracting in record time.&rdquo;</blockquote>
+          <div>
+            <div class="ta-name">Marcus Rodriguez</div>
+            <div class="ta-role">Director of People, Forge Media</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POST A JOB -->
+  <section class="form-section" id="post-a-job">
+    <div class="wrap" style="max-width: 940px;">
+      <div class="eyebrow">For recruiters</div>
+      <h2 class="serif">Post a Job</h2>
+      <p class="fs-sub">Reach thousands of qualified candidates in minutes.</p>
+
+      <form class="form-card reveal">
+        <div>
+          <div class="form-block-label">Job Details</div>
+          <div class="form-row" style="margin-bottom: 20px;">
+            <div class="field">
+              <label for="pj-title">Job Title</label>
+              <input id="pj-title" type="text" placeholder="e.g. Senior Product Designer">
+            </div>
+            <div class="field">
+              <label for="pj-company">Company Name</label>
+              <input id="pj-company" type="text" placeholder="e.g. Ardent Corp">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="pj-location">Location</label>
+              <select id="pj-location">
+                <option>Remote / On-site / Hybrid</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="pj-department">Department</label>
+              <select id="pj-department">
+                <option>Select department</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="form-block-label">Employment Type</div>
+          <div class="pill-group">
+            <span class="pill-option active">Full-time</span>
+            <span class="pill-option">Part-time</span>
+            <span class="pill-option">Contract</span>
+            <span class="pill-option">Freelance</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="form-block-label">Salary Range</div>
+          <div class="form-row">
+            <div class="field">
+              <label for="pj-min">Min</label>
+              <input id="pj-min" type="text" placeholder="$140,000">
+            </div>
+            <div class="field">
+              <label for="pj-max">Max</label>
+              <input id="pj-max" type="text" placeholder="$175,000">
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="pj-desc">Job Description</label>
+          <textarea id="pj-desc" placeholder="Write a clear overview of the role, responsibilities, and what success looks like in the first 90 days."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="pj-req">Requirements</label>
+          <textarea id="pj-req" placeholder="List must-have skills, tools, and experience required for the position."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="pj-benefits">Benefits &amp; Perks</label>
+          <textarea id="pj-benefits" placeholder="Health Insurance, 401k, Remote Work, Flexible Hours"></textarea>
+        </div>
+
+        <div class="field" style="max-width: 320px;">
+          <label for="pj-deadline">Application Deadline</label>
+          <input id="pj-deadline" type="date" placeholder="Select a date">
+        </div>
+
+        <div class="form-footer">
+          <p>By publishing, you agree to Stackly's posting guidelines.</p>
+          <button type="submit" class="btn btn-dark">Publish Job</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- APPLY FOR A JOB -->
+  <section class="form-section" id="apply-for-a-job">
+    <div class="wrap" style="max-width: 940px;">
+      <div class="eyebrow">For candidates</div>
+      <h2 class="serif">Apply for a Position</h2>
+      <p class="fs-sub">Take the next step in your career.</p>
+
+      <form class="form-card reveal">
+        <div>
+          <div class="form-block-label">Contact Information</div>
+          <div class="form-row" style="margin-bottom: 20px;">
+            <div class="field">
+              <label for="af-name">Full Name</label>
+              <input id="af-name" type="text" placeholder="e.g. Elena Marsh">
+            </div>
+            <div class="field">
+              <label for="af-email">Email Address</label>
+              <input id="af-email" type="email" placeholder="elena@company.com">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="af-phone">Phone Number</label>
+              <input id="af-phone" type="tel" placeholder="+1 (555) 123-4567">
+            </div>
+            <div class="field">
+              <label for="af-linkedin">LinkedIn Profile URL</label>
+              <input id="af-linkedin" type="text" placeholder="linkedin.com/in/yourname">
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="form-block-label">Application Materials</div>
+          <div class="field" style="margin-bottom: 20px;">
+            <label>Resume / CV</label>
+            <div class="upload-zone">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 14.5V4.5M11 4.5L6.5 9M11 4.5l4.5 4.5" stroke="#9aa0ab" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 15.5v1.8c0 .9.7 1.6 1.6 1.6h10.8c.9 0 1.6-.7 1.6-1.6v-1.8" stroke="#9aa0ab" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p>Drag &amp; drop your file here</p>
+              <span>PDF, DOCX (max 10MB)</span>
+              <button type="button" class="btn btn-dark">Browse Files</button>
+            </div>
+          </div>
+          <div class="field" style="margin-bottom: 20px;">
+            <label for="af-cover">Cover Letter</label>
+            <textarea id="af-cover" placeholder="Tell us why you're a strong fit and what you hope to achieve in this role."></textarea>
+          </div>
+          <div class="field">
+            <label for="af-portfolio">Portfolio URL (optional)</label>
+            <input id="af-portfolio" type="text" placeholder="yourwebsite.com">
+          </div>
+        </div>
+
+        <div>
+          <div class="form-block-label">Availability</div>
+          <div class="form-row" style="margin-bottom: 20px;">
+            <div class="field">
+              <label for="af-years">Years of Experience</label>
+              <select id="af-years">
+                <option>Select</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="af-salary">Desired Salary</label>
+              <input id="af-salary" type="text" placeholder="$120,000">
+            </div>
+          </div>
+          <div class="field" style="max-width: 320px;">
+            <label for="af-start">Availability / Start Date</label>
+            <input id="af-start" type="date" placeholder="Select a date">
+          </div>
+        </div>
+
+        <div class="form-footer">
+          <p>Your information is kept confidential and secure.</p>
+          <button type="submit" class="btn btn-dark">Submit Application</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="wrap" style="max-width: 720px;">
+      <h2 class="serif">Ready to Transform<br>Your Hiring?</h2>
+      <p>Whether you are expanding your engineering teams or seeking your next step, Stackly provides the unvarnished tools you need to move forward deliberately.</p>
+      <div class="cta-banner-ctas">
+        <a href="404.html" class="btn btn-mint">Start Hiring</a>
+        <a href="404.html" class="btn btn-outline-mint">Find Jobs</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+
+<footer id="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="#top" class="logo" aria-label="Stackly home">
+          <img src="images/logo.webp" alt="Stackly" class="logo-img">
+        </a>
+        <p>Human resources solutions for organisations that hire deliberately — talent strategy, compliance, and people operations under one roof.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.94 8.5H4.06V20H6.94V8.5ZM5.5 7.25A1.75 1.75 0 1 0 5.5 3.75a1.75 1.75 0 0 0 0 3.5ZM20 13.5c0-3-1.6-4.5-3.9-4.5-1.5 0-2.4.75-2.8 1.4V8.5H10.4V20h2.9v-6.1c0-.9.2-1.8 1.4-1.8 1.2 0 1.4.9 1.4 1.9V20H19V13.5h1Z" fill="currentColor"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6.3c-.6.3-1.2.5-1.9.6.7-.4 1.2-1 1.4-1.8-.6.4-1.4.7-2.1.8a3.3 3.3 0 0 0-5.7 3 9.4 9.4 0 0 1-6.8-3.5 3.3 3.3 0 0 0 1 4.4c-.5 0-1-.2-1.5-.4v.1c0 1.6 1.2 3 2.7 3.3-.5.1-1 .2-1.5.1.4 1.4 1.7 2.3 3.2 2.4A6.6 6.6 0 0 1 4 16.6a9.3 9.3 0 0 0 5.1 1.5c6.1 0 9.4-5 9.4-9.4v-.4c.6-.5 1.2-1.1 1.5-1.9Z" fill="currentColor"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.7" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 21v-7.5H17l.4-3H14.5V8.4c0-.9.2-1.5 1.5-1.5H17.5V4.3C17.2 4.3 16.2 4.2 15 4.2c-2.4 0-4 1.5-4 4.1v2.2H8.5v3H11V21h3.5Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>For recruiters</h4>
+        <ul>
+          <li><a href="404.html">Talent Search</a></li>
+          <li><a href="404.html">Job Posting</a></li>
+          <li><a href="404.html">Pricing</a></li>
+          <li><a href="404.html">ATS Integration</a></li>
+          <li><a href="404.html">Request Demo</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>For candidates</h4>
+        <ul>
+          <li><a href="404.html">Browse Jobs</a></li>
+          <li><a href="404.html">Create Profile</a></li>
+          <li><a href="404.html">Career Advice</a></li>
+          <li><a href="404.html">Salaries</a></li>
+          <li><a href="404.html">Job Alerts</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="404.html">Platform Blog</a></li>
+          <li><a href="404.html">Market Reports</a></li>
+          <li><a href="404.html">Compliance Guide</a></li>
+          <li><a href="404.html">Support</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+           <li><a href="index.html">Home</a></li>
+          <li><a href="solutions.html">Solutions</a></li>
+          <li><a href="hiring.html">Hiring</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Stackly HR Partners. All rights reserved.</span>
+      <span>Privacy &middot; Terms &middot; Modern Slavery Statement</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
