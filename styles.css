@@ -92,7 +92,12 @@
 
 *{ box-sizing: border-box; margin:0; padding:0; }
 
-html{ scroll-behavior: smooth; }
+html{
+    scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 html.mobile-menu-open,
 body.mobile-menu-open{ overflow: hidden; }
 
@@ -101,6 +106,8 @@ body{
     color: var(--ink);
     background: var(--bg);
     -webkit-font-smoothing: antialiased;
+  width: 100%;
+  max-width: 100%;
     overflow-x: hidden;
   }
 
