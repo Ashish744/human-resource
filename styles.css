@@ -1307,6 +1307,14 @@ nav{
 /* ---------- Mobile ---------- */
   @media (max-width: 900px){
     .wrap{ padding: 0 24px; }
+    .form-card .field{ min-width: 0; }
+    .form-card input[type="date"]{
+      min-width: 0;
+      max-width: 100%;
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 13px;
+    }
     .nav-links{ display:none; }
     .hero-grid{ grid-template-columns: 1fr; }
     .hero-media{ order: -1; }
